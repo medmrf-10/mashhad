@@ -1,1 +1,46 @@
-<!doctype html><html dir=rtl lang=ar><meta charset=utf-8><title>مشهد</title><body style="background:#0a0a0a;color:#eee;font-family:sans-serif;text-align:center;padding:60px"><h1>مشهد</h1><p>قريباً — مقطع مركّب من جيمناي</p></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مشهد — قصص مرئية</title>
+<style>
+  :root{--bg:#0d0f14;--card:#161a22;--fg:#e8e4da;--mut:#8a8478;--acc:#c9a15e}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:'Segoe UI',Tahoma,sans-serif;min-height:100vh}
+  header{padding:28px 20px 12px;text-align:center}
+  h1{font-size:30px;letter-spacing:1px;color:var(--acc)}
+  .sub{color:var(--mut);font-size:13px;margin-top:6px}
+  main{max-width:960px;margin:22px auto 60px;padding:0 16px}
+  .film{background:var(--card);border:1px solid #232838;border-radius:14px;overflow:hidden;box-shadow:0 10px 40px #0008}
+  .film h2{padding:16px 20px 0;font-size:20px;color:var(--fg)}
+  .film .desc{padding:8px 20px 16px;color:var(--mut);font-size:14px;line-height:1.8}
+  video{display:block;width:100%;background:#000}
+  .parts{padding:10px 20px 20px;display:flex;flex-wrap:wrap;gap:8px}
+  .parts a{color:var(--mut);font-size:12px;text-decoration:none;border:1px solid #2a3040;padding:4px 10px;border-radius:20px}
+  .parts a:hover{color:var(--acc);border-color:var(--acc)}
+  footer{text-align:center;color:#4a4560;font-size:12px;padding:24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>مشهد</h1>
+  <div class="sub">قصص قصيرة مولّدة بالذكاء الاصطناعي — تركيب مقاطع في سرد واحد متصل</div>
+</header>
+<main>
+  <section class="film">
+    <h2>مخطوطة النور</h2>
+    <div class="desc">صانع يفوط يجد مخطوطة مضيئة تحت أرضية ورشته العثمانية القديمة، فيقرأ كلماتها وتتبدّل ملامح حياته — من الظل إلى الفجر. قصة من خمسة مقاطع مولّدة، مُركّبة في فيلم واحد بحوار عربي وموسيقى ومؤثرات.</div>
+    <video controls preload="metadata" src="film/makhtuta-al-nur.mp4" poster="film/poster.jpg"></video>
+    <div class="parts" id="parts"></div>
+  </section>
+</main>
+<footer>مشهد · <span id="y"></span></footer>
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  const P=document.getElementById('parts');
+  for(let i=1;i<=5;i++){const n=String(i).padStart(2,'0');
+    const a=document.createElement('a');a.href='clips/'+n+'.mp4';a.textContent='مقطع '+i;P.appendChild(a)}
+</script>
+</body>
+</html>
